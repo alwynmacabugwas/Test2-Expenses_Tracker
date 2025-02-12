@@ -7,7 +7,7 @@ namespace Test2.Models
         public DbSet<Expense> Expenses { get; set; }
         public Test2DbContext(DbContextOptions<Test2DbContext> options) : base(options)
         {
-              
+
         }
     }
 }

@@ -52,7 +52,7 @@ namespace Test2.Controllers
         }
         public IActionResult CreateEditExpenseForm(Expense model)
         {
-            if(model.Id == 0)
+            if (model.Id == 0)
             {
                 _context.Expenses.Add(model);
             }

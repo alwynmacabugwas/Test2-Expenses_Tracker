@@ -8,10 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<Test2DbContext>(options =>
     {
         options.UseSqlServer("Server=ICT-LPTP-22-02\\MSSQLSERVER01;Database=ExpensesDB;Trusted_Connection=True;TrustServerCertificate=True");
-});
+    });
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddIdentity<Users, IdentityRole>(options =>

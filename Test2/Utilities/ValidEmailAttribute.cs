@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.Identity.Client;
 
 namespace Test2.Utilities
 {
@@ -13,8 +12,8 @@ namespace Test2.Utilities
 
         override public bool IsValid(object value)
         {
-           string[] strings = value.ToString().Split('@');
-           return strings[1] == allowedDomain;
+            string[] strings = value.ToString().Split('@');
+            return strings[1] == allowedDomain;
         }
     }
 }
