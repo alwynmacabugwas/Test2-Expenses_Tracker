@@ -49,7 +49,7 @@ namespace Test2.Controllers
         {
             if (ModelState.IsValid)
             {
-                Users users = new Users
+                Users users = new()
                 {
                     FullName = model.Name,
                     Email = model.Email,
