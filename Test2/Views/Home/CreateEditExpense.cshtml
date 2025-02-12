@@ -8,16 +8,37 @@
     <h1 class="display-4">Create / Edit Expenses</h1>
 </div>
 
-<form asp-action="CreateEditExpenseForm" asp-controller="Home">
-    <input hidden class="form control" type="number" placeholder="0" asp-for="Id" />
+<form onsubmit="return validatePrice()" asp-action="CreateEditExpenseForm" asp-controller="Home">
+    <input hidden class="form-control" type="number" asp-for="Id" />
 
     <label class="mt-4">Price</label>
-    <input class="form control" type="number" placeholder="0" asp-for="Price" step="0.01" />
+    <input class="form-control" type="number" asp-for="Price" step="0.01" id="priceInput" />
 
     <label class="mt-4">Description</label>
-    <input class="form control" type="text" asp-for="Description" />
+    <input class="form-control" type="text" asp-for="Description" />
+
+    <input hidden class="form-control" type="string" asp-for="Email" id="emailInput"/>
 
     <button class="btn btn-primary mt-4" type="submit">Ok</button>
 
 
 </form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () 
+    {
+        const emailInput = document.getElementById("emailInput");
+        emailInput.value = localStorage.getItem('email');
+    });
+
+    function validatePrice() {
+        var price = document.getElementById("priceInput").value;
+
+        if(price === "" || price < 0 || price === null){
+            alert("Price cannot be empty or negative.");
+            return false;
+        }
+        alert("Skipped over if statement")
+        return true;
+    }
+</script>

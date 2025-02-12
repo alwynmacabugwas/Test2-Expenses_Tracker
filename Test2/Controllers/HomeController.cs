@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Test2.Models;
 
@@ -20,6 +21,7 @@ namespace Test2.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
@@ -31,6 +33,7 @@ namespace Test2.Controllers
             ViewBag.Expenses = totalExpenses;
             return View(allExpenses);
         }
+        [Authorize]
         public IActionResult CreateEditExpense(int? id)
         {
             if (id == null)
