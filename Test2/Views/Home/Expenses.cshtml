@@ -17,6 +17,8 @@
                 <th>Price</th>
                 <th>Description</th>
                 <th>Email</th>
+                <th>Category</th>
+                <th>Images</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -38,7 +40,13 @@
                             @expense.Email
                         </td>
                         <td>
-                            <a asp-action="CreateEditExpense" asp-route-id="@expense.Id">Edit</a>
+                            @expense.Category
+                        </td>
+                        <td>
+                            <img src="~/images/@expense.ImageName" width="100" height="100" />
+                        </td>
+                        <td>
+                            <a asp-action="EditExpense" asp-route-id="@expense.Id">Edit</a>
                             <a asp-action="DeleteExpense" asp-route-id="@expense.Id">Delete</a>
                         </td>
                     </tr>
